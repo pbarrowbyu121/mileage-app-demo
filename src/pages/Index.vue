@@ -1,6 +1,11 @@
 <template>
   <div class="text-krona-one">
-    <q-card v-for="car in cars" :key="car.id" class="my-card q-ma-md">
+    <q-card
+      v-for="car in cars"
+      :key="car.id"
+      class="my-card q-ma-md"
+      @click="goToCar(car.id)"
+    >
       <q-img :src="car.image" basic>
         <div class="absolute-bottom text-subtitle1 text-center">
           "{{ car.nickname }}""
@@ -54,6 +59,12 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    goToCar(id) {
+      console.log("goToCar activated");
+      this.$router.push({ path: `car/${id}` });
+    }
   }
 };
 </script>

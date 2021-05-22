@@ -1,0 +1,70 @@
+<template>
+  <div class="text-krona-one">
+    <q-img
+      src="https://media.gettyimages.com/photos/tesla-roadster-picture-id523066522?s=2048x2048"
+    >
+      <div class="absolute-bottom text-subtitle1 text-center">
+        "Max"
+      </div>
+    </q-img>
+    <q-card class="my-card">
+      <q-btn
+        flat
+        round
+        color="grey"
+        icon="edit"
+        @click="editCar"
+        class="absolute-top-right"
+        style="z-index: 1"
+      />
+      <q-card-section>
+        <div class="row">
+          <div class="col">Year:</div>
+          <div class="col">2010</div>
+        </div>
+        <div class="row">
+          <div class="col">Make:</div>
+          <div class="col">Honda</div>
+        </div>
+        <div class="row">
+          <div class="col">Model:</div>
+          <div class="col">Civic</div>
+        </div>
+        <div class="row">
+          <div class="col">Color:</div>
+          <div class="col">Silver</div>
+        </div>
+        <div class="row">
+          <div class="col">Mileage:</div>
+          <div class="col">34 mpg</div>
+        </div>
+        <div class="row">
+          <div class="col">License:</div>
+          <div class="col">123 ABC</div>
+        </div>
+        <div class="row">
+          <div class="col">VIN:</div>
+          <div class="col">FAKE123VIN456</div>
+        </div>
+      </q-card-section>
+    </q-card>
+    <TanksTable />
+  </div>
+</template>
+
+<script>
+import TanksTable from "../components/TanksTable";
+export default {
+  name: "CarPage",
+  methods: {
+    editCar() {
+      console.log("editCar pushed");
+    }
+  },
+  components: {
+    TanksTable
+  }
+};
+</script>
+
+<style></style>
