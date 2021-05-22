@@ -26,14 +26,29 @@
         </div>
       </q-card-section>
     </q-card>
+    <div class="text-center">
+      <q-btn
+        outline
+        rounded
+        color="primary"
+        label="Add New Car"
+        @click="newCarDialogToggle"
+      />
+    </div>
+    <!-- New Car Dialog -->
+    <q-dialog v-model="newCarDialog">
+      <NewCarDialog />
+    </q-dialog>
   </div>
 </template>
 
 <script>
+import NewCarDialog from "../components/NewCarDialog";
 export default {
   name: "PageIndex",
   data() {
     return {
+      newCarDialog: false,
       cars: [
         {
           id: 1,
@@ -64,7 +79,14 @@ export default {
     goToCar(id) {
       console.log("goToCar activated");
       this.$router.push({ path: `car/${id}` });
+    },
+    newCarDialogToggle() {
+      console.log("add car dialog toggle");
+      this.newCarDialog = true;
     }
+  },
+  components: {
+    NewCarDialog
   }
 };
 </script>
