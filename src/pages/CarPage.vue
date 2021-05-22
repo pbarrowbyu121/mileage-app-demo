@@ -1,7 +1,7 @@
 <template>
   <div class="text-krona-one">
     <q-img
-      src="https://media.gettyimages.com/photos/tesla-roadster-picture-id523066522?s=2048x2048"
+      src="https://cars.usnews.com/static/images/Auto/izmo/321536/2010_honda_civic_sdn_angularfront.jpg"
     >
       <div class="absolute-bottom text-subtitle1 text-center">
         "Max"

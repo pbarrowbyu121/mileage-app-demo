@@ -44,7 +44,7 @@ export default {
           odometer: 1000,
           nickname: "Max",
           image:
-            "https://lh3.googleusercontent.com/proxy/ZgdSqghmvZs3C3wty1fGh0eW7R4DvDI7hHBOghTmGtHn0cfSb0keZgllXzX-1RP1OEKISNzVM6810_mVaOmGwQrhm105WgfN"
+            "https://cars.usnews.com/static/images/Auto/izmo/321536/2010_honda_civic_sdn_angularfront.jpg"
         },
         {
           id: 2,
