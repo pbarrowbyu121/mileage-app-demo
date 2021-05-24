@@ -49,6 +49,15 @@
       </q-card-section>
     </q-card>
     <TanksTable />
+    <div class="text-center q-my-md">
+      <q-btn
+        outline
+        rounded
+        color="primary"
+        label="Add Tank"
+        @click="addTankDialogToggle"
+      />
+    </div>
   </div>
 </template>
 
@@ -56,9 +65,18 @@
 import TanksTable from "../components/TanksTable";
 export default {
   name: "CarPage",
+  data() {
+    return {
+      newTankPopup: false
+    };
+  },
   methods: {
     editCar() {
       console.log("editCar pushed");
+    },
+    addTankDialogToggle() {
+      console.log("newTankPopup triggered");
+      this.newTankPopup = true;
     }
   },
   components: {
