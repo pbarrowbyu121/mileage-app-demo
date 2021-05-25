@@ -68,6 +68,20 @@
       "odometer": 1234,
       "gallons": 12,
       "cost": 34
+    },
+    {
+      "id": "68b86cc9-112c-4afb-9735-1b44143b340c",
+      "date": "05/03/2021",
+      "odometer": "333",
+      "gallons": "333",
+      "cost": "333"
+    },
+    {
+      "id": "874a012e-892e-4a9a-bcb3-f61f2b72cb7c",
+      "date": "05/04/2021",
+      "odometer": "444",
+      "gallons": "444",
+      "cost": "444"
     }
   ]
 }

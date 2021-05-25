@@ -47,6 +47,9 @@
 </template>
 
 <script>
+import { uid } from "quasar";
+import { mapActions } from "vuex";
+
 export default {
   name: "NewTankDialog",
   data() {
@@ -58,13 +61,22 @@ export default {
     };
   },
   methods: {
+    ...mapActions("carstore", ["getTanksAction"]),
     onSubmit() {
       let newTankObj = {
+        id: uid(),
         date: this.date,
         odometer: this.odometer,
         gallons: this.gallons,
         cost: this.cost
       };
+      fetch("http://localhost:3000/tanks", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(newTankObj)
+      }).then(response => this.getTanksAction());
       console.log("submit new tank", newTankObj);
     }
   }

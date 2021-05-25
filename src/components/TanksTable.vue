@@ -62,22 +62,6 @@ export default {
           align: "center"
         }
       ],
-      tanks: [
-        {
-          id: 1,
-          date: "05/03/2021",
-          odometer: 1000,
-          gallons: 12,
-          cost: 34
-        },
-        {
-          id: 2,
-          date: "05/04/2021",
-          odometer: 1234,
-          gallons: 12,
-          cost: 34
-        }
-      ],
       editTankPopup: false,
       tankToEdit: false
     };
@@ -94,6 +78,11 @@ export default {
   },
   components: {
     EditTankDialog
+  },
+  computed: {
+    tanks() {
+      return this.$store.state.carstore.tanks;
+    }
   }
 };
 </script>
