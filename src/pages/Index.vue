@@ -48,31 +48,7 @@ export default {
   name: "PageIndex",
   data() {
     return {
-      newCarDialog: false,
-      cars: [
-        {
-          id: 1,
-          year: 2010,
-          make: "Honda",
-          model: "Civic",
-          mpg: 29,
-          odometer: 1000,
-          nickname: "Max",
-          image:
-            "https://cars.usnews.com/static/images/Auto/izmo/321536/2010_honda_civic_sdn_angularfront.jpg"
-        },
-        {
-          id: 2,
-          year: 2020,
-          make: "Tesla",
-          model: "Roadster",
-          mpg: 33,
-          odometer: 50,
-          nickname: "Doge",
-          image:
-            "https://cdn.carbuzz.com/gallery-images/2022-tesla-roadster-carbuzz-523781.jpg"
-        }
-      ]
+      newCarDialog: false
     };
   },
   methods: {
@@ -87,6 +63,11 @@ export default {
   },
   components: {
     NewCarDialog
+  },
+  computed: {
+    cars() {
+      return this.$store.state.carstore.cars;
+    }
   }
 };
 </script>

@@ -57,6 +57,9 @@
 </template>
 
 <script>
+import { uid } from "quasar";
+import { mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -74,8 +77,10 @@ export default {
     };
   },
   methods: {
+    ...mapActions("carstore", ["getCarsAction"]),
     onSubmit() {
       let newCarObj = {
+        id: uid(),
         year: this.year,
         make: this.make,
         model: this.model,
@@ -86,6 +91,13 @@ export default {
         image: this.image
       };
       console.log("Submit new car", newCarObj);
+      fetch("http://localhost:3000/cars", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(newCarObj)
+      }).then(response => this.getCarsAction());
     }
   }
 };

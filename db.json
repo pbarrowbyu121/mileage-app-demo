@@ -1,0 +1,73 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "year": 2010,
+      "make": "Honda",
+      "model": "Civic",
+      "mpg": 29,
+      "odometer": 1000,
+      "nickname": "Max",
+      "image": "https://cars.usnews.com/static/images/Auto/izmo/321536/2010_honda_civic_sdn_angularfront.jpg"
+    },
+    {
+      "id": 2,
+      "year": 2020,
+      "make": "Tesla",
+      "model": "Roadster",
+      "mpg": 33,
+      "odometer": 50,
+      "nickname": "Doge",
+      "image": "https://cdn.carbuzz.com/gallery-images/2022-tesla-roadster-carbuzz-523781.jpg"
+    },
+    {
+      "year": 2021,
+      "make": "Nissan",
+      "model": "Maxima",
+      "color": "Green",
+      "vin": "FAKEVIN987",
+      "nickname": "Liam",
+      "license": "BHG",
+      "image": null,
+      "id": 3
+    },
+    {
+      "id": "debbda48-2f2e-427b-9612-6271c47c164c",
+      "year": 2020,
+      "make": "Nissan",
+      "model": "Civic",
+      "color": "Yellow",
+      "vin": "NEWVIN",
+      "nickname": "Checkers",
+      "license": "NEWVIN",
+      "image": null
+    },
+    {
+      "id": "49083541-2a11-41b5-91a0-e5e248ce46c1",
+      "year": 2018,
+      "make": "Honda",
+      "model": "Roadster",
+      "color": "ORANGE",
+      "vin": "NEWCAR123",
+      "nickname": "NEWCAR",
+      "license": "NEWCAR123",
+      "image": null
+    }
+  ],
+  "tanks": [
+    {
+      "id": 1,
+      "date": "05/03/2021",
+      "odometer": 1000,
+      "gallons": 12,
+      "cost": 34
+    },
+    {
+      "id": 2,
+      "date": "05/04/2021",
+      "odometer": 1234,
+      "gallons": 12,
+      "cost": 34
+    }
+  ]
+}
