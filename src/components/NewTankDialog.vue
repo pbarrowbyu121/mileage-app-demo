@@ -15,7 +15,7 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-date v-model="date" today-btn minimal>
+                <q-date v-model="date" today-btn minimal mask="MM/DD/YYYY">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Ok" color="primary" flat />
                   </div>
