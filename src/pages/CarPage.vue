@@ -62,23 +62,30 @@
     <q-dialog v-model="newTankPopup">
       <NewTankDialog />
     </q-dialog>
+    <!-- Edit Car Dialog -->
+    <q-dialog v-model="editCarPopup">
+      <EditCarDialog />
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import TanksTable from "../components/TanksTable";
 import NewTankDialog from "../components/NewTankDialog";
+import EditCarDialog from "../components/EditCarDialog";
 
 export default {
   name: "CarPage",
   data() {
     return {
-      newTankPopup: false
+      newTankPopup: false,
+      editCarPopup: false
     };
   },
   methods: {
     editCar() {
       console.log("editCar pushed");
+      this.editCarPopup = true;
     },
     addTankDialogToggle() {
       console.log("newTankPopup triggered");
@@ -87,7 +94,8 @@ export default {
   },
   components: {
     TanksTable,
-    NewTankDialog
+    NewTankDialog,
+    EditCarDialog
   }
 };
 </script>
