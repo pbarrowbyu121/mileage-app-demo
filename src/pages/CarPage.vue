@@ -58,11 +58,17 @@
         @click="addTankDialogToggle"
       />
     </div>
+    <!-- New Tank Dialog -->
+    <q-dialog v-model="newTankPopup">
+      <NewTankDialog />
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import TanksTable from "../components/TanksTable";
+import NewTankDialog from "../components/NewTankDialog";
+
 export default {
   name: "CarPage",
   data() {
@@ -80,7 +86,8 @@ export default {
     }
   },
   components: {
-    TanksTable
+    TanksTable,
+    NewTankDialog
   }
 };
 </script>
