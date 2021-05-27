@@ -34,7 +34,7 @@
         </div>
         <div class="row">
           <div class="col">Mileage:</div>
-          <div class="col">34 mpg</div>
+          <div class="col">{{ carMPG }} mpg</div>
         </div>
         <div class="row">
           <div class="col">License:</div>
@@ -75,6 +75,7 @@ import TanksTable from "../components/TanksTable";
 import NewTankDialog from "../components/NewTankDialog";
 import EditCarDialog from "../components/EditCarDialog";
 import { mapActions } from "vuex";
+import { calcMPG, sortTanks } from "../../utilFunctions";
 
 export default {
   name: "CarPage",
@@ -123,9 +124,20 @@ export default {
       const carVin = this.$store.state.carstore.cars.filter(
         car => car.id === this.id
       )[0].vin;
-      return this.$store.state.carstore.tanks.filter(
-        tank => tank.vin === carVin
+      return sortTanks(
+        this.$store.state.carstore.tanks.filter(tank => tank.vin === carVin),
+        "desc"
       );
+    },
+    carMPG() {
+      let tanks = this.$store.state.carstore.tanks.filter(
+        tank => tank.vin === this.car.vin
+      );
+      if (tanks.length > 0) {
+        return calcMPG(tanks);
+      } else {
+        return null;
+      }
     }
   },
   components: {

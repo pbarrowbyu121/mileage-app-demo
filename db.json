@@ -20,6 +20,14 @@
       "gallons": "12",
       "cost": "34",
       "vin": "VIN123"
+    },
+    {
+      "id": "5b1de211-8735-4fc7-a96d-d79d97e97188",
+      "date": "05/05/2021",
+      "odometer": "555",
+      "gallons": "12",
+      "cost": "55",
+      "vin": "VIN123"
     }
   ]
 }

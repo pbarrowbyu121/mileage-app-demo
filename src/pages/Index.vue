@@ -18,11 +18,11 @@
       <q-card-section>
         <div class="row">
           <div class="col">Mileage:</div>
-          <div class="col">{{ car.mpg }} mpg</div>
+          <div class="col">{{ carMPG(car).mpg }} mpg</div>
         </div>
         <div class="row">
           <div class="col">Total Miles:</div>
-          <div class="col">{{ car.odometer }}</div>
+          <div class="col">{{ carMPG(car).totalMiles }}</div>
         </div>
       </q-card-section>
     </q-card>
@@ -44,6 +44,7 @@
 
 <script>
 import NewCarDialog from "../components/NewCarDialog";
+import { calcMPG } from "../../utilFunctions";
 export default {
   name: "PageIndex",
   data() {
@@ -59,6 +60,16 @@ export default {
     newCarDialogToggle() {
       console.log("add car dialog toggle");
       this.newCarDialog = true;
+    },
+    carMPG(car) {
+      let tanks = this.$store.state.carstore.tanks.filter(
+        tank => tank.vin === car.vin
+      );
+      if (tanks.length > 0) {
+        return { mpg: calcMPG(tanks), totalMiles: tanks[0].odometer };
+      } else {
+        return null;
+      }
     }
   },
   components: {
