@@ -1,87 +1,25 @@
 {
   "cars": [
     {
-      "id": 1,
-      "year": 2010,
+      "id": "caab09d1-ed00-41b5-b860-a930e1dcb1c7",
+      "year": 2019,
       "make": "Honda",
       "model": "Civic",
-      "mpg": 29,
-      "odometer": 1000,
+      "color": "Silver",
+      "vin": "VIN123",
       "nickname": "Max",
-      "image": "https://cars.usnews.com/static/images/Auto/izmo/321536/2010_honda_civic_sdn_angularfront.jpg"
-    },
-    {
-      "id": 2,
-      "year": 2020,
-      "make": "Tesla",
-      "model": "Roadster",
-      "mpg": 33,
-      "odometer": 50,
-      "nickname": "Doge",
-      "image": "https://cdn.carbuzz.com/gallery-images/2022-tesla-roadster-carbuzz-523781.jpg"
-    },
-    {
-      "year": 2021,
-      "make": "Nissan",
-      "model": "Maxima",
-      "color": "Green",
-      "vin": "FAKEVIN987",
-      "nickname": "Liam",
-      "license": "BHG",
-      "image": null,
-      "id": 3
-    },
-    {
-      "id": "debbda48-2f2e-427b-9612-6271c47c164c",
-      "year": 2020,
-      "make": "Nissan",
-      "model": "Civic",
-      "color": "Yellow",
-      "vin": "NEWVIN",
-      "nickname": "Checkers",
-      "license": "NEWVIN",
-      "image": null
-    },
-    {
-      "id": "49083541-2a11-41b5-91a0-e5e248ce46c1",
-      "year": 2018,
-      "make": "Honda",
-      "model": "Roadster",
-      "color": "ORANGE",
-      "vin": "NEWCAR123",
-      "nickname": "NEWCAR",
-      "license": "NEWCAR123",
+      "license": "LIC123",
       "image": null
     }
   ],
   "tanks": [
     {
-      "id": 1,
-      "date": "05/03/2021",
-      "odometer": 1000,
-      "gallons": 12,
-      "cost": 34
-    },
-    {
-      "id": 2,
-      "date": "05/04/2021",
-      "odometer": 1234,
-      "gallons": 12,
-      "cost": 34
-    },
-    {
-      "id": "68b86cc9-112c-4afb-9735-1b44143b340c",
+      "id": "b7387189-f834-4877-9d18-240961b74c72",
       "date": "05/03/2021",
       "odometer": "333",
-      "gallons": "333",
-      "cost": "333"
-    },
-    {
-      "id": "874a012e-892e-4a9a-bcb3-f61f2b72cb7c",
-      "date": "05/04/2021",
-      "odometer": "444",
-      "gallons": "444",
-      "cost": "444"
+      "gallons": "12",
+      "cost": "34",
+      "vin": "VIN123"
     }
   ]
 }

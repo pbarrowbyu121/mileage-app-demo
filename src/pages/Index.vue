@@ -26,7 +26,7 @@
         </div>
       </q-card-section>
     </q-card>
-    <div class="text-center">
+    <div class="text-center q-my-md">
       <q-btn
         outline
         rounded

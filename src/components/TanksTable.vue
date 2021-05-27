@@ -29,7 +29,9 @@
 
 <script>
 import EditTankDialog from "../components/EditTankDialog";
+import { mapActions } from "vuex";
 export default {
+  props: ["tanks"],
   data() {
     return {
       columns: [
@@ -67,6 +69,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions("carstore", ["getTanksAction", "deleteTanksAction"]),
     editTank(tank) {
       console.log("editTank pushed", tank);
       this.tankToEdit = tank;
@@ -74,15 +77,11 @@ export default {
     },
     onDelete(id) {
       console.log("delete tank", id);
+      this.deleteTanksAction(id).then(response => this.getTanksAction());
     }
   },
   components: {
     EditTankDialog
-  },
-  computed: {
-    tanks() {
-      return this.$store.state.carstore.tanks;
-    }
   }
 };
 </script>

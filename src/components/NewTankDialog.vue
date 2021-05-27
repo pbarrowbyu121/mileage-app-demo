@@ -60,6 +60,7 @@ export default {
       cost: null
     };
   },
+  props: ["car"],
   methods: {
     ...mapActions("carstore", ["getTanksAction"]),
     onSubmit() {
@@ -68,7 +69,8 @@ export default {
         date: this.date,
         odometer: this.odometer,
         gallons: this.gallons,
-        cost: this.cost
+        cost: this.cost,
+        vin: this.car.vin
       };
       fetch("http://localhost:3000/tanks", {
         method: "POST",

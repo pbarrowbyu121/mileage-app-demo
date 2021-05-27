@@ -25,3 +25,19 @@ export function getTanksAction({ commit }) {
         commit('GET_TANKS_MUTATION', response);
     });
 }
+
+// DELETE requests
+export function deleteTanksAction({}, id) {
+    const deletePromise = fetch(`http://localhost:3000/tanks/${id}`, {
+        method: "DELETE"
+    });
+    return deletePromise
+}
+
+export function deleteCarAction({}, id) {
+    const deleteCarPromise = fetch(`http://localhost:3000/cars/${id}`, {
+        method: "DELETE"
+    });
+    return deleteCarPromise
+}
+

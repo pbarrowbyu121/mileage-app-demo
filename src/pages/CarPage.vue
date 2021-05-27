@@ -1,10 +1,8 @@
 <template>
-  <div class="text-krona-one">
-    <q-img
-      src="https://cars.usnews.com/static/images/Auto/izmo/321536/2010_honda_civic_sdn_angularfront.jpg"
-    >
+  <div v-if="car" class="text-krona-one">
+    <q-img :src="car.image">
       <div class="absolute-bottom text-subtitle1 text-center">
-        "Max"
+        "{{ car.nickname }}"
       </div>
     </q-img>
     <q-card class="my-card">
@@ -20,19 +18,19 @@
       <q-card-section>
         <div class="row">
           <div class="col">Year:</div>
-          <div class="col">2010</div>
+          <div class="col">{{ car.year }}</div>
         </div>
         <div class="row">
           <div class="col">Make:</div>
-          <div class="col">Honda</div>
+          <div class="col">{{ car.make }}</div>
         </div>
         <div class="row">
           <div class="col">Model:</div>
-          <div class="col">Civic</div>
+          <div class="col">{{ car.model }}</div>
         </div>
         <div class="row">
           <div class="col">Color:</div>
-          <div class="col">Silver</div>
+          <div class="col">{{ car.color }}</div>
         </div>
         <div class="row">
           <div class="col">Mileage:</div>
@@ -40,15 +38,15 @@
         </div>
         <div class="row">
           <div class="col">License:</div>
-          <div class="col">123 ABC</div>
+          <div class="col">{{ car.license }}</div>
         </div>
         <div class="row">
           <div class="col">VIN:</div>
-          <div class="col">FAKE123VIN456</div>
+          <div class="col">{{ car.vin }}</div>
         </div>
       </q-card-section>
     </q-card>
-    <TanksTable />
+    <TanksTable v-if="tanks && tanks.length > 0" :tanks="tanks" />
     <div class="text-center q-my-md">
       <q-btn
         outline
@@ -58,9 +56,12 @@
         @click="addTankDialogToggle"
       />
     </div>
+    <div class="text-center q-my-md">
+      <q-btn rounded color="negative" label="Delete Car" @click="deleteCar" />
+    </div>
     <!-- New Tank Dialog -->
     <q-dialog v-model="newTankPopup">
-      <NewTankDialog />
+      <NewTankDialog :car="car" />
     </q-dialog>
     <!-- Edit Car Dialog -->
     <q-dialog v-model="editCarPopup">
@@ -73,6 +74,7 @@
 import TanksTable from "../components/TanksTable";
 import NewTankDialog from "../components/NewTankDialog";
 import EditCarDialog from "../components/EditCarDialog";
+import { mapActions } from "vuex";
 
 export default {
   name: "CarPage",
@@ -82,7 +84,26 @@ export default {
       editCarPopup: false
     };
   },
+  props: ["id"],
   methods: {
+    ...mapActions("carstore", [
+      "getCarsAction",
+      "getTanksAction",
+      "deleteTanksAction",
+      "deleteCarAction"
+    ]),
+    deleteCar() {
+      console.log("Delete Car", this.id);
+      if (this.tanks) {
+        let deleteTanksArr = this.tanks.map(tank => tank.id);
+        deleteTanksArr.forEach(id => {
+          this.deleteTanksAction;
+        });
+      }
+      this.deleteCarAction(this.car.id)
+        .then(response => this.getCarsAction())
+        .then(response => this.$router.push({ path: "/" }));
+    },
     editCar() {
       console.log("editCar pushed");
       this.editCarPopup = true;
@@ -90,6 +111,21 @@ export default {
     addTankDialogToggle() {
       console.log("newTankPopup triggered");
       this.newTankPopup = true;
+    }
+  },
+  computed: {
+    car() {
+      return this.$store.state.carstore.cars.filter(
+        car => car.id === this.id
+      )[0];
+    },
+    tanks() {
+      const carVin = this.$store.state.carstore.cars.filter(
+        car => car.id === this.id
+      )[0].vin;
+      return this.$store.state.carstore.tanks.filter(
+        tank => tank.vin === carVin
+      );
     }
   },
   components: {
