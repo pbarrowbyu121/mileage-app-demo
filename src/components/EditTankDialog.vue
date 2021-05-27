@@ -38,7 +38,12 @@
         <q-input filled v-model="cost" label="Cost ($)" dense />
 
         <q-card-actions align="right">
-          <q-btn v-close-popup color="primary" type="submit" label="Add Tank" />
+          <q-btn
+            v-close-popup
+            color="primary"
+            type="submit"
+            label="Save Tank"
+          />
           <q-btn v-close-popup flat color="primary" label="Cancel" />
         </q-card-actions>
       </q-form>
@@ -47,25 +52,32 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "EditTankDialog",
+  props: ["tank"],
   data() {
     return {
-      date: null,
-      odometer: null,
-      gallons: null,
-      cost: null
+      date: this.tank.date,
+      odometer: this.tank.odometer,
+      gallons: this.tank.gallons,
+      cost: this.tank.cost
     };
   },
   methods: {
+    ...mapActions("carstore", ["getTanksAction", "editTankAction"]),
     onSubmit() {
-      let newTankObj = {
+      let editedTankObj = {
+        ...this.tank,
         date: this.date,
         odometer: this.odometer,
         gallons: this.gallons,
         cost: this.cost
       };
-      console.log("submit new tank", newTankObj);
+      this.editTankAction(editedTankObj).then(response =>
+        this.getTanksAction()
+      );
     }
   }
 };

@@ -65,7 +65,7 @@
     </q-dialog>
     <!-- Edit Car Dialog -->
     <q-dialog v-model="editCarPopup">
-      <EditCarDialog />
+      <EditCarDialog :car="car" />
     </q-dialog>
   </div>
 </template>

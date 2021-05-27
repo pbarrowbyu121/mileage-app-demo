@@ -1,7 +1,7 @@
 <template>
   <q-card class="my-card text-krona-one">
     <q-card-section>
-      <div>Add New Car</div>
+      <div>Edit Car</div>
     </q-card-section>
 
     <q-card-section>
@@ -57,25 +57,29 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
+  props: ["car"],
   data() {
     return {
-      year: null,
-      make: null,
-      model: null,
-      color: null,
-      vin: null,
-      nickname: null,
-      license: null,
-      image: null,
+      year: this.car.year,
+      make: this.car.make,
+      model: this.car.model,
+      color: this.car.color,
+      vin: this.car.vin,
+      nickname: this.car.nickname,
+      license: this.car.license,
+      image: this.car.image,
       yearOptions: [2018, 2019, 2020, 2021],
       makeOptions: ["Honda", "Tesla", "Nissan"],
       modelOptions: ["Civic", "Roadster", "Maxima"]
     };
   },
   methods: {
+    ...mapActions("carstore", ["getCarsAction", "editCarAction"]),
     onSubmit() {
-      let newCarObj = {
+      let editedCarObj = {
+        ...this.car,
         year: this.year,
         make: this.make,
         model: this.model,
@@ -85,7 +89,7 @@ export default {
         license: this.license,
         image: this.image
       };
-      console.log("Submit new car", newCarObj);
+      this.editCarAction(editedCarObj).then(response => this.getCarsAction());
     }
   }
 };

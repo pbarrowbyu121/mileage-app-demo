@@ -2,7 +2,7 @@
   "cars": [
     {
       "id": "caab09d1-ed00-41b5-b860-a930e1dcb1c7",
-      "year": 2019,
+      "year": 2020,
       "make": "Honda",
       "model": "Civic",
       "color": "Silver",
@@ -16,7 +16,7 @@
     {
       "id": "b7387189-f834-4877-9d18-240961b74c72",
       "date": "05/03/2021",
-      "odometer": "333",
+      "odometer": "444",
       "gallons": "12",
       "cost": "34",
       "vin": "VIN123"

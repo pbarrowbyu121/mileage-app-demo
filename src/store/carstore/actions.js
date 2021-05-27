@@ -41,3 +41,25 @@ export function deleteCarAction({}, id) {
     return deleteCarPromise
 }
 
+// PUT requests
+export function editCarAction({}, editedCarObj) {
+    const editCarPromise = fetch(`http://localhost:3000/cars/${editedCarObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(editedCarObj)
+    })
+    return editCarPromise
+}
+
+export function editTankAction({}, editedTankObj) {
+    const editTankPromise = fetch(`http://localhost:3000/tanks/${editedTankObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify(editedTankObj)
+    })
+    return editTankPromise
+}

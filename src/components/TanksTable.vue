@@ -23,7 +23,9 @@
       </template>
     </q-table>
     <!-- Edit Tank Dialog -->
-    <q-dialog v-model="editTankPopup"><EditTankDialog /></q-dialog>
+    <q-dialog v-model="editTankPopup"
+      ><EditTankDialog :tank="tankToEdit"
+    /></q-dialog>
   </div>
 </template>
 
